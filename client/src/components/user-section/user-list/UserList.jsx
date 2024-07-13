@@ -1,3 +1,4 @@
+import Spinner from "../../spinner/Spinner";
 import UserListItem from "./user-list-item/UserListItem";
 /**
  * 
@@ -6,11 +7,14 @@ import UserListItem from "./user-list-item/UserListItem";
  */
 export default function UserList({
     users,
+    isLoading,
     showUserDetailsClickHandler,
+    userDeleteClickHandler,
 }) {
     return (
         
         <div className="table-wrapper">
+            {isLoading && <Spinner/>}
             {/* Overlap components  */}
 
             {/* <div className="loading-shade"> */}
@@ -142,6 +146,7 @@ export default function UserList({
                             key={user._id}
                             user={user} 
                             showUserDetailsClickHandler = {showUserDetailsClickHandler}
+                            userDeleteClickHandler = {userDeleteClickHandler}
                         />
                     )}
                     
